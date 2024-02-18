@@ -47,13 +47,6 @@
       border-bottom-right-radius: 19px !important;
     }
 
-    /* Add scrolling for portrait mode */
-    @media (orientation: portrait) {
-      .scrollable-content {
-        max-height: 70vh; /* Set maximum height for scrolling */
-        overflow-y: auto; /* Enable vertical scrolling */
-      }
-    }
   </style>
   
 </head>
@@ -91,24 +84,35 @@
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
     #card {
-        width: auto; /* Allow the card to adjust its width */
-        left: 50%;
-        transform: translateX(-50%);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    max-width: 90%;
+    text-align: left;
+    }
+
+    #backgroundImg {
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     }
 }
-
-
-  </style>
+ </style>
 
 <section class="text-center">
   <div class="card mx-9 lg-12 mx-md-5 shadow-5-strong" id="card">
     <div class="card-body px-md-5 align-left">
       <h2 class="fw-bold mb-5">REGISTRATION FORM</h2>
       
-      <!-- Add scrollable content wrapper -->
-      <div class="scrollable-content">
+      
         <form method="post" action="/register" onsubmit="return validateForm()">
           <div class="form-column">
             <div class="form-outline mb-4">
@@ -157,11 +161,9 @@
           <button type="submit" class="btn btn-primary btn-block">Register</button>
         </form>
       </div>
-      <!-- End scrollable content wrapper -->
     </div>
   </div>
 </section>
-
 
   <script>
     const togglePassword = document.getElementById('togglePassword');
